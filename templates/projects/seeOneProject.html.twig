@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>{{ project.title }}</h1>
+<a href='{{ project.url }}' target="blank">Voir le site</a>
+<p>{{ project.description }}</p>
+<p>Dates : {{ project.startDate|date('d-m-Y') }} à {{ project.endDate ? project.endDate|date('d-m-Y') : 'En cours'}}</p>
+<a href="{{ path('project_index')}}">Retour à la liste des projets</a>
+{% endblock %}
