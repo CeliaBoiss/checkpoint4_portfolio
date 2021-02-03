@@ -1,4 +1,8 @@
 @import 'variables.css';
+* {
+    margin: 0;
+    padding: 0;
+}
 
 /* START burger menu */
 #topLogo img {
@@ -85,6 +89,20 @@
     cursor: pointer;
 }
 /* END back to top */
+
+/* START footer */
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2vw;
+    background-color: var(--primary-color2);
+    color: var(--white);
+}
+
+
+/* END footer */
 
 @media screen and (min-width: 814px) {
     body {
