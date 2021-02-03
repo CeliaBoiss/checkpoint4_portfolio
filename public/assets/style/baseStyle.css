@@ -1,0 +1,124 @@
+@import 'variables.css';
+
+/* START burger menu */
+#topLogo img {
+    width: 60vw;
+}
+
+.openButton {
+    margin : 8px 8px 0 8px;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    position: fixed;
+    z-index: 15;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    margin: 6px 6px;
+}
+
+.closeButton {
+  font-size: 3rem;
+  margin : 8px;
+  padding: 3px;
+}
+
+.sideNav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 16;
+    top: 0;
+    right: 0;
+    background-color: var(--primary-color2);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 0;
+    height: 70%;
+    list-style: none;
+}
+
+.navLink {
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+}
+/* END burger menu */
+
+/* START back to top style */
+#returnTop {
+    color: var(--primary-color3);
+    margin: 1rem;
+    text-decoration: none;
+    position: fixed;
+    bottom: 30px;
+    right: 2.5px;
+    z-index: 1;
+    border: solid;
+    outline: none;
+    background-color: var(--primary-color);
+    cursor: pointer;
+    padding: 1px;
+    border-radius: 50%;
+    transition: all 0.1s ease-in-out;
+    width: 50px;
+    height: 50px;
+    font-size: 50px;
+}
+
+#returnTop:hover {
+    transform: scale(1.10);
+    color: var(--primary-color2);
+    cursor: pointer;
+}
+/* END back to top */
+
+@media screen and (min-width: 814px) {
+    body {
+        margin: 0 15%;
+    }
+
+    /* START menu */
+    .navBar {
+        display: flex;
+    }
+    
+    .sideNav {
+        overflow-x: visible;
+        position: relative;
+        z-index: 0;
+        display: flex;
+        width: 100%;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+        width: 100%;
+    }
+
+    .bar1, .bar2, .bar3 {
+        display: none;
+    }
+
+    .closeButton {
+        display: none;
+    }
+    /* END menu */
+}

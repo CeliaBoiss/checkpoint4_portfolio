@@ -1,0 +1,14 @@
+:root {
+    --primary-color: yellow;
+    --primary-color2: orange;
+    --primary-color3: orangered;
+    --secondary-color: #988f86;
+    --secondary-color-opacity: rgba(152, 143, 134, 0.5);
+    --white: #fffafa;
+    --black: #020202;
+    --primary-title: 'Montserrat-Bold', sans-serif;
+    --secondary-title: 'Montserrat-SemiBold', sans-serif;
+    --primary-text: 'Montserrat-Regular', sans-serif;
+    --secondary-text: 'Montserrat-Light', sans-serif;
+    --tertiary-text: 'Montserrat-ExtraLight', sans-serif;
+}

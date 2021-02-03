@@ -2,12 +2,33 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Célia Boisseau - Portfolio{% endblock %}</title>
+        <link rel="stylesheet" href="/assets/style/baseStyle.css">
         {% block stylesheets %}{% endblock %}
-
-        {% block javascripts %}{% endblock %}
     </head>
     <body>
+        <section class="navBar">
+            <div class="openButton">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <h1><a id="topLogo" href="{{ path('home') }}">Célia Boisseau - Portfolio</a></h1>
+            <nav class="sideNav">
+                <a href="javascript:void(0)" class="closeButton">&times;</a>
+                <ul class="nav">
+                    <li class="navLink"><a class="link" href="#">Mes projets</a></li>
+                    <li class="navLink"><a class="link" href="#contactMe">Me contacter</a></li>
+                </ul>
+            </nav>
+        </section>
         {% block body %}{% endblock %}
+        <button id="returnTop">^</button>
+        <footer>
+        <h2 id="contactMe">Me contacter :</h2>
+        </footer>
+        <script src="/assets/js/base.js"></script>
+        {% block javascripts %}{% endblock %}
     </body>
 </html>
