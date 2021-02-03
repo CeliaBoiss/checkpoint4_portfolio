@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Accueil{{ parent() }}{% endblock %}
+
 {% block body %}
 <section>
     <h1>Developpeuse web et mobile</h1>
@@ -19,29 +21,37 @@
     hendrerit. </p>
     <h3>Languages</h3>
     <ul>
-        <li>- PHP</li>
-        <li>- HTML</li>
+        {% for language in languages %}
+        <li>{{ language.name }}</li>
+        {% endfor %}
     </ul>
     <h3>Technologies</h3>
     <ul>
-        <li>- Git/GitHub</li>
-        <li>- Symfony</li>
+        {% for techno in technos %}
+        <li>{{ techno.name }}</li>
+        {% endfor %}
     </ul>
     <h3>Soft Skills</h3>
     <ul>
-        <li>- travail en équipe</li>
-        <li>- autonomie</li>
+        {% for softSkill in softSkills %}
+        <li>{{ softSkill.name }}</li>
+        {% endfor %}
     </ul>
 </section>
 <section>
     <h2>Mes derniers projets</h2>
-    <a href="#"><img src="http://placekitten.com/300/200" alt=""></a>
-    <a href="#"><img src="http://placekitten.com/300/200" alt=""></a>
+    {% for project in projects %}
+    <div>
+        <h3>{{ project.title }}</h3>
+        <a href="{{ path('project_show', {'id' : project.id}) }}"><img src="http://placekitten.com/300/200" alt=""></a>
+    </div>
+    {% endfor %}
     <a href="{{ path('project_index') }}">Voir plus</a>
 </section>
 <section>
     <h2>Mes clients</h2>
-    <a href="#"><img src="http://placekitten.com/200/100" alt=""></a>
-    <a href="#"><img src="http://placekitten.com/200/100" alt=""></a>
+    {% for customer in customers %}
+    <a href="http://{{ customer.url }}">{{ customer.name }}</a>
+    {% endfor %}
 </section>
 {% endblock %}

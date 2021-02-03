@@ -29,6 +29,11 @@ class Skill
      */
     private $projects;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $type;
+
     public function __construct()
     {
         $this->projects = new ArrayCollection();
@@ -71,6 +76,18 @@ class Skill
     public function removeProject(Project $project): self
     {
         $this->projects->removeElement($project);
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }

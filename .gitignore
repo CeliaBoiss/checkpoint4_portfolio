@@ -14,3 +14,7 @@
 .phpunit.result.cache
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
+
+###> dynamic photo folder ###
+/public/assets/images/dynamic/
+###< dynamic photo folder ###

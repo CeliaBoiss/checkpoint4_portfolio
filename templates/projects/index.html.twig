@@ -1,9 +1,13 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Projets{{ parent() }}{% endblock %}
+
 {% block body %}
 <h1>Mes projets</h1>
 {% for project in projects %}
-<a href="{{ path('project_show', {'id' : project.id}) }}"><img src="http://placekitten.com/300/200" alt=""></a>
-<h3>{{ project.title }}</h3>
+<div>
+    <h3>{{ project.title }}</h3>
+    <a href="{{ path('project_show', {'id' : project.id}) }}"><img src="http://placekitten.com/300/200" alt=""></a>
+</div>
 {% endfor %}
 {% endblock %}

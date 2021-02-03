@@ -1,9 +1,33 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ project.title }}{{ parent() }}{% endblock %}
+
 {% block body %}
 <h1>{{ project.title }}</h1>
-<a href='{{ project.url }}' target="blank">Voir le site</a>
+{% for photo in project.photos %}
+<img src="/assets/images/dynamic/{{ photo.photo }}" alt="{{ project.title }}">
+{% endfor %}
 <p>{{ project.description }}</p>
-<p>Dates : {{ project.startDate|date('d-m-Y') }} à {{ project.endDate ? project.endDate|date('d-m-Y') : 'En cours'}}</p>
+<h3>Site réalisé pour :</h3>
+    {% for customer in project.customers %}
+        <a href="http://{{ customer.url }}" target="_blank">{{ customer.name }}</a>
+    {% endfor %}
+<h3>Dates</h3>
+<p>{{ project.startDate|date('d-m-Y') }} à {{ project.endDate ? project.endDate|date('d-m-Y') : 'En cours'}}</p>
+<h3>Technologies utilisées</h3>
+<ul>
+{% for skill in project.skills %}
+    <li>{{ skill.name }}</li>
+{% endfor %}
+</ul>
+<h3>Collaborateur(s)<h3>
+<ul>
+{% for workingPartner in project.workingPartners %}
+    <li><a href="http://{{ workingPartner.url }}">
+        {{ workingPartner.firstname }} {{ workingPartner.lastname }}
+    </a></li>
+{% endfor %}
+</ul>
+<a href='{{ project.url }}' target="blank">Voir le site</a>
 <a href="{{ path('project_index')}}">Retour à la liste des projets</a>
 {% endblock %}

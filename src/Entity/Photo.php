@@ -15,7 +15,7 @@ class Photo
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private integer $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
