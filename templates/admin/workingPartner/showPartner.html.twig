@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin{{ parent() }}{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/assets/style/adminStyle.css">
+{% endblock %}
+
+{% block body %}
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Prénom</th>
+            <td>{{ workingPartner.firstName }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ workingPartner.lastName }}</td>
+        </tr>
+        <tr>
+            <th>Url</th>
+            <td>{{ workingPartner.url }}</td>
+        </tr>
+        <tr>
+        <th>Projets</th>
+        {% for project in workingPartner.projects %}
+            <td>{{ project.title }}</td>
+        {% endfor %}
+        </tr>
+    </tbody>
+</table>
+<button><a href="{{ path('admin_partner_edit', {'id': workingPartner.id}) }}">Edit</a></button>
+<form method="post" action="{{ path('admin_partner_delete', {'id': workingPartner.id}) }}" onsubmit="return confirm('{{ workingPartner.firstName }} {{ workingPartner.lastName }} sera supprimé. Continuer ?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ workingPartner.id) }}">
+    <button class="btn">Delete</button>
+</form>
+<a href="{{ path('admin_index') }}">Retour à index admin</a>
+{% endblock %}

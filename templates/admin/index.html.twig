@@ -2,12 +2,32 @@
 
 {% block title %}Admin{{ parent() }}{% endblock %}
 
+{% block stylesheets %}
+<link rel="stylesheet" href="/assets/style/adminStyle.css">
+{% endblock %}
+
 {% block body %}
 <h1>Administration</h1>
-{% for project in projects %}
-<p><a href="{{ path('admin_show', { 'id': project.id }) }}">{{ loop.index }} - {{ project.title }}</a></p>
-{% else %}
-<p>Pas de projet à afficher.</p>
-{% endfor %}
+<h2>Projets</h2>
+<ul>
+    {% for project in projects %}
+    <li>
+        <a href="{{ path('admin_show', { 'id': project.id }) }}">{{ loop.index }} - {{ project.title }}</a>
+    </li>
+    {% else %}
+    <li>Pas de projet à afficher.</li>
+    {% endfor %}
+</ul>
 <button><a href="{{ path('admin_project_add') }}">Nouveau projet</a></button>
+<h2>Partenaires</h2>
+<ul>
+    {% for workingPartner in workingPartners %}
+    <li>
+        <a href="{{ path('admin_partner_show', {'id': workingPartner.id}) }}">{{ loop.index }} - {{ workingPartner.firstName }} {{ workingPartner.lastName }}</a>
+    </li>
+    {% else %}
+    <p>Pas de partenaires à afficher.</li>
+    {% endfor %}
+</ul>
+<button><a href="{{ path('admin_partner_add') }}">Nouveau partenaire</a></button>
 {% endblock %}

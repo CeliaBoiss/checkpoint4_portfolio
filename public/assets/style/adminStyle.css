@@ -1,0 +1,14 @@
+.divPhoto {
+    width: 30vw;
+    height: 13vw;
+    overflow: hidden;
+}
+
+.divPhoto .projetPhoto {
+    width: 100%;
+    min-height: 100%;
+}
+
+ul {
+    list-style: none;
+}

@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin{{ parent() }}{% endblock %}
+
+{% block body %}
+    <h1 class="adminTitle">Modifier le partenaire "{{ workingPartner.firstName }} {{ workingPartner.lastName }}"</h1>
+    {{ include('admin/workingPartner/_formPartner.html.twig', {'button_label': 'Modifier'}) }}
+    <a href="{{ path('admin_partner_show', {'id' : workingPartner.id }) }}">Retour au partenaire</a>{% endblock %}

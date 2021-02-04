@@ -13,7 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Validator\Constraints\File;
 
@@ -25,13 +25,13 @@ class ProjectType extends AbstractType
             ->add('title', TextType::class)
             ->add('description', TextareaType::class)
             ->add('url', UrlType::class)
-            ->add('startDate', DateTimeType::class, [
-                'date_label' => 'Commencé le',
-                'date_widget' => 'single_text',
+            ->add('startDate', DateType::class, [
+                'widget' => 'choice',
+                'format' => 'ddMMMyyyy',
             ])
-            ->add('endDate', DateTimeType::class, [
-                'date_label' => 'Fini le',
-                'date_widget' => 'single_text',
+            ->add('endDate', DateType::class, [
+                'widget' => 'choice',
+                'format' => 'ddMMMyyyy',
                 'required' => false,
             ])
             ->add('skills', EntityType::class, [

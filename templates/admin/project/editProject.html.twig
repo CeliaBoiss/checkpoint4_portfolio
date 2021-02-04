@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin{{ parent() }}{% endblock %}
+
+{% block body %}
+    <h1 class="adminTitle">Modifier le projet "{{ project.title }}</h1>
+    {{ include('admin/project/_formProject.html.twig', {'button_label': 'Modifier'}) }}
+    <a href="{{ path('admin_show', {'id' : project.id }) }}">Retour au projet</a>
+{% endblock %}

@@ -2,6 +2,10 @@
 
 {% block title %}Admin{{ parent() }}{% endblock %}
 
+{% block stylesheets %}
+<link rel="stylesheet" href="/assets/style/adminStyle.css">
+{% endblock %}
+
 {% block body %}
 <table class="table">
     <tbody>
@@ -25,12 +29,12 @@
             <th>Fini le</th>
             <td>{{ project.endDate ? project.endDate|date('d-m-Y') : 'En cours' }}</td>
         </tr>
+        {% for photo in project.photos %}
         <tr>
             <th>Photos</th>
-            {% for photo in project.photos %}
-            <td><img src="/assets/images/dynamic/{{ photo.photo }}"></td>
-            {% endfor %}
+            <td class="divPhoto"><img class="projetPhoto" src="/assets/images/dynamic/{{ photo.photo }}"></td>
         </tr>
+        {% endfor %}
         <tr>
             <th>Techno</th>
             <td>
