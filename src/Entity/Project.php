@@ -45,7 +45,7 @@ class Project
     private $endDate;
 
     /**
-     * @ORM\OneToMany(targetEntity=Photo::class, mappedBy="project")
+     * @ORM\OneToMany(targetEntity=Photo::class, mappedBy="project", orphanRemoval=true)
      */
     private $photos;
 

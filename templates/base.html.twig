@@ -20,6 +20,9 @@
                 <ul class="nav">
                     <li class="navLink"><a class="link" href="{{ path('project_index') }}">Mes projets</a></li>
                     <li class="navLink"><a class="link" href="#contactMe">Me contacter</a></li>
+                    {% if app.user %}
+                    <li class="navLink"><a class="link" href="{{ path('admin_index') }}">Admin</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </section>

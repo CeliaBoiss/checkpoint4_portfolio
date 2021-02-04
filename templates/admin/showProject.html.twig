@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin{{ parent() }}{% endblock %}
+
+{% block body %}
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Titre</th>
+            <td>{{ project.title }}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ project.description }}</td>
+        </tr>
+        <tr>
+            <th>Url</th>
+            <td>{{ project.url }}</td>
+        </tr>
+        <tr>
+            <th>Commencé le</th>
+            <td>{{ project.startDate|date('d-m-Y') }}</td>
+        </tr>
+        <tr>
+            <th>Fini le</th>
+            <td>{{ project.endDate ? project.endDate|date('d-m-Y') : 'En cours' }}</td>
+        </tr>
+        <tr>
+            <th>Photos</th>
+            {% for photo in project.photos %}
+            <td><img src="/assets/images/dynamic/{{ photo.photo }}"></td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <th>Techno</th>
+            <td>
+            {% for skill in project.skills %}
+                {{ skill.name }}
+            {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <th>Client(s)</th>
+            <td>
+            {% for customer in project.customers %}
+                {{ customer.name }}
+            {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <th>Partenaire(s)</th>
+            <td>
+            {% for workingPartner in project.workingPartners %}
+                {{ workingPartner.firstName }} {{ workingPartner.lastName }}
+            {% endfor %}
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button><a href="{{ path('admin_project_edit', {'id': project.id}) }}">Edit</a></button>
+<form method="post" action="{{ path('admin_project_delete', {'id': project.id}) }}" onsubmit="return confirm('{{ project.title }} sera supprimé. Continuer ?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ project.id) }}">
+    <button class="btn">Delete</button>
+</form>
+<a href="{{ path('admin_index') }}">Retour à index admin</a>
+{% endblock %}
