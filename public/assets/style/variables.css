@@ -1,14 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap');
+
 :root {
-    --primary-color: yellow;
-    --primary-color2: orange;
-    --primary-color3: orangered;
-    --secondary-color: #988f86;
+    --primary-color: #CB997E;
+    --primary-color2: #A8DADC;
+    --primary-color3: #1D3557;
+    --secondary-color: #A5A58D;
     --secondary-color-opacity: rgba(152, 143, 134, 0.5);
-    --white: #fffafa;
+    --white: #F1FAEE;
     --black: #020202;
-    --primary-title: 'Montserrat-Bold', sans-serif;
-    --secondary-title: 'Montserrat-SemiBold', sans-serif;
-    --primary-text: 'Montserrat-Regular', sans-serif;
-    --secondary-text: 'Montserrat-Light', sans-serif;
-    --tertiary-text: 'Montserrat-ExtraLight', sans-serif;
+    --primary-title: 'Syne', sans-serif;
+    --primary-text: 'Red Hat Display', sans-serif;
 }

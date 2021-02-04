@@ -2,13 +2,17 @@
 
 {% block title %}Accueil{{ parent() }}{% endblock %}
 
+{% block stylesheets %}
+<link rel="stylesheet" href="/assets/style/homeStyle.css">
+{% endblock %}
+
 {% block body %}
-<section>
-    <h1>Developpeuse web et mobile</h1>
-    <img src="/assets/images/static/boisseau_celia.jpg" alt="photo de Célia Boisseau">
+<section class="sectionsPage">
+    <h1 class="pageTitle">Developpeuse web et mobile</h1>
+    <img id="mePhoto" src="/assets/images/static/boisseau_celia.jpg" alt="photo de Célia Boisseau">
 </section>
-<section>
-    <h2>Me découvrir</h2>
+<section id="presentation" class="sectionsPage">
+    <h2 class="sectionTitle">Me découvrir</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus
     tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam.
     Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec
@@ -19,41 +23,53 @@
     ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh.
     Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales
     hendrerit. </p>
-    <h3>Languages</h3>
-    <ul>
-        {% for language in languages %}
-        <li>{{ language.name }}</li>
-        {% endfor %}
-    </ul>
-    <h3>Technologies</h3>
-    <ul>
-        {% for techno in technos %}
-        <li>{{ techno.name }}</li>
-        {% endfor %}
-    </ul>
-    <h3>Soft Skills</h3>
-    <ul>
-        {% for softSkill in softSkills %}
-        <li>{{ softSkill.name }}</li>
-        {% endfor %}
-    </ul>
+    <div class="skills">
+        <div>
+            <h3 class="skillTitle">Langages</h3>
+            <ul class="skillsList">
+                {% for language in languages %}
+                <li>+ {{ language.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div>
+            <h3 class="skillTitle">Technologies</h3>
+            <ul class="skillsList">
+                {% for techno in technos %}
+                <li>+ {{ techno.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div>
+            <h3 class="skillTitle">Soft Skills</h3>
+            <ul class="skillsList">
+                {% for softSkill in softSkills %}
+                <li>+ {{ softSkill.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 </section>
-<section>
-    <h2>Mes derniers projets</h2>
+<section class="sectionsPage">
+    <h2 class="sectionTitle">Mes derniers projets</h2>
     {% for project in projects %}
-    <div>
-        <h3>{{ project.title }}</h3>
-        <a href="{{ path('project_show', {'id' : project.id}) }}">
-            <img src="/assets/images/dynamic/{{ project.photos[0].photo }}" alt="projet {{ project.title }}">
-        </a>
+    <div class="project">
+        <h3 class="projectTitle">Projet {{ project.title }}</h3>
+        <div class="divPhoto">
+            <a href="{{ path('project_show', {'id' : project.id}) }}">
+                <img class="projetPhoto" src="/assets/images/dynamic/{{ project.photos[0].photo }}" alt="projet {{ project.title }}">
+            </a>
+        </div>
     </div>
     {% endfor %}
-    <a href="{{ path('project_index') }}">Voir plus</a>
+    <a class="plus" href="{{ path('project_index') }}">Cliquez ici pour en voir plus</a>
 </section>
-<section>
-    <h2>Mes clients</h2>
-    {% for customer in customers %}
-    <a href="http://{{ customer.url }}">{{ customer.name }}</a>
-    {% endfor %}
+<section class="customers sectionsPage">
+    <h2 class="sectionTitle">Mes clients</h2>
+    <div class="customersList">
+        {% for customer in customers %}
+        <a href="http://{{ customer.url }}">{{ customer.name }}</a>
+        {% endfor %}
+    </div>
 </section>
 {% endblock %}

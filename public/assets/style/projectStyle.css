@@ -1,0 +1,56 @@
+.allPhotos {
+    margin-top: 15px;
+}
+
+.divPhoto {
+    margin-bottom: 15px;
+}
+
+.greyBack {
+    padding : 5%;
+    border-radius: 10px;
+    text-align: justify;
+    margin-bottom: 15px;
+    background-color: var(--secondary-color);
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 80%;
+}
+
+.customer {
+    color: var(--primary-color3);
+}
+
+.skillsList li {
+    list-style: none;
+}
+
+.skillsList {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+}
+
+.dates, .customer {
+    text-align: center;
+}
+
+.dates span {
+    color: var(--primary-color3);
+    font-weight: bold;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#seeSite {
+    color: var(--primary-color3);
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.goBack {
+    margin-left: 15px;
+    color: var(--primary-color3);
+    font-size: large;
+}

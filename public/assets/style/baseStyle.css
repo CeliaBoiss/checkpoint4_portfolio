@@ -1,14 +1,96 @@
 @import 'variables.css';
+
 * {
     margin: 0;
     padding: 0;
 }
 
-/* START burger menu */
-#topLogo img {
-    width: 60vw;
+body {
+    font-family: var(--primary-text);
+    background-color: var(--white);
 }
 
+.projectsHr {
+    width: 60%;
+    color: var(--secondary-color);
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/* START header */
+#title {
+    width: 80%;
+    text-align: center;
+}
+
+#title a {
+    font-family: var(--primary-title);
+    color: var(--primary-color3);
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.navBar {
+    background-color: var(--primary-color);
+    border: var(--primary-color);
+    border-bottom: var(--primary-color3);
+    border-style: solid;
+    height: 18vw;
+}
+/* END header */
+
+/* START titles */
+.sectionsPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pageTitle {
+    margin-top: 15px;
+    text-align: center;
+    font-family: var(--primary-title);
+    color: var(--primary-color3);
+    width: 80%;
+}
+
+.sectionTitle {
+    border-style: solid;
+    border-color: var(--primary-color3);
+    background-color: var(--primary-color);
+    color: var(--primary-color3);
+    text-align: center;
+    width: 75%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+/* END titles */
+
+/* START projects */
+.divPhoto {
+    width: 90vw;
+    height: 60vw;
+    overflow: hidden;
+    border: 3px solid var(--primary-color);
+}
+
+.divPhoto .projetPhoto {
+    width: 100%;
+    min-height: 100%;
+}
+
+.projectTitle, .partTitle {
+    text-align: center;
+    color: var(--primary-color3);
+    margin-bottom: 8px;
+}
+
+.project {
+    margin-bottom: 15px;
+}
+/* END projects */
+
+/* START burger menu */
 .openButton {
     margin : 8px 8px 0 8px;
     top: 0;
@@ -21,8 +103,8 @@
 .bar1, .bar2, .bar3 {
     width: 35px;
     height: 5px;
-    background-color: var(--primary-color);
     border-radius: 10px;
+    background-color: var(--primary-color3);
     margin: 6px 6px;
 }
 
@@ -30,6 +112,8 @@
   font-size: 3rem;
   margin : 8px;
   padding: 3px;
+  color: var(--primary-color);
+  text-decoration: none;
 }
 
 .sideNav {
@@ -39,9 +123,9 @@
     z-index: 16;
     top: 0;
     right: 0;
-    background-color: var(--primary-color2);
     overflow-x: hidden;
     transition: 0.5s;
+    background-color: var(--primary-color3);;
 }
 
 .nav {
@@ -60,6 +144,11 @@
     font-size: larger;
     font-weight: bold;
 }
+
+.link {
+    text-decoration: none;
+    color: var(--primary-color);
+}
 /* END burger menu */
 
 /* START back to top style */
@@ -68,19 +157,19 @@
     margin: 1rem;
     text-decoration: none;
     position: fixed;
-    bottom: 30px;
+    bottom: 15px;
     right: 2.5px;
     z-index: 1;
     border: solid;
     outline: none;
-    background-color: var(--primary-color);
+    background-color: var(--primary-color2);
     cursor: pointer;
     padding: 1px;
     border-radius: 50%;
     transition: all 0.1s ease-in-out;
     width: 50px;
     height: 50px;
-    font-size: 50px;
+    font-size: 20px;
 }
 
 #returnTop:hover {
@@ -96,11 +185,20 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2vw;
-    background-color: var(--primary-color2);
-    color: var(--white);
+    background-color: var(--primary-color);
+    color: var(--primary-color3);
+    height: 30vw;
 }
 
+.socialNetWork {
+    width: 80%;
+    text-align: center;
+}
+
+.snLogo {
+    width: 12vw;
+    padding: 15px;
+}
 
 /* END footer */
 
@@ -139,4 +237,8 @@ footer {
         display: none;
     }
     /* END menu */
+
+    #title a:hover {
+        color: var(--primary-color2);
+    }
 }
