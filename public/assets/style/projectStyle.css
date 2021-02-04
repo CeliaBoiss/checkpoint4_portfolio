@@ -54,3 +54,17 @@
     color: var(--primary-color3);
     font-size: large;
 }
+
+@media screen and (min-width: 814px) {
+    .goBack, #seeSite, .customer {
+    transition: all 0.1s ease-in-out;
+    }
+
+    .goBack:hover, #seeSite:hover {
+        color: var(--secondary-color);
+    }
+
+    .customer:hover {
+        color: var(--primary-color2);
+    }
+}

@@ -60,3 +60,21 @@
 .customers {
     margin-bottom: 15px;
 }
+
+@media screen and (min-width: 814px) {
+    .customersList a:hover, .plus:hover {
+        color: var(--secondary-color);
+    }
+
+    #mePhoto {
+        width: 40%;
+    }
+
+    .skills div {
+        text-align: center;
+    }
+
+    .skillsList {
+        columns: 2;
+    }
+}

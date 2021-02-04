@@ -125,7 +125,7 @@ body {
     right: 0;
     overflow-x: hidden;
     transition: 0.5s;
-    background-color: var(--primary-color3);;
+    background-color: var(--primary-color3);
 }
 
 .nav {
@@ -171,12 +171,6 @@ body {
     height: 50px;
     font-size: 20px;
 }
-
-#returnTop:hover {
-    transform: scale(1.10);
-    color: var(--primary-color2);
-    cursor: pointer;
-}
 /* END back to top */
 
 /* START footer */
@@ -207,9 +201,16 @@ footer {
         margin: 0 15%;
     }
 
+    #returnTop:hover {
+        transform: scale(1.10);
+        background-color: var(--primary-color);
+        cursor: pointer;
+    }
+
     /* START menu */
     .navBar {
         display: flex;
+        height: 4vw;
     }
     
     .sideNav {
@@ -218,6 +219,7 @@ footer {
         z-index: 0;
         display: flex;
         width: 100%;
+        background-color: var(--primary-color);
     }
 
     .nav {
@@ -229,6 +231,15 @@ footer {
         width: 100%;
     }
 
+    .link {
+        color: var(--primary-color3);
+        transition: all 0.1s ease-in-out;
+    }    
+    
+    .link:hover {
+        color: var(--primary-color2);
+    }
+
     .bar1, .bar2, .bar3 {
         display: none;
     }
@@ -237,8 +248,49 @@ footer {
         display: none;
     }
     /* END menu */
+    #title {
+        text-align: center;
+        transition: all 0.1s ease-in-out;
+    }
 
     #title a:hover {
         color: var(--primary-color2);
+    }
+
+    #title:hover {
+        transform: scale(1.10);
+    }
+
+    .snLogo {
+        width: 5vw;
+        padding: 15px;
+        transition: all 0.1s ease-in-out;
+    }
+
+    .snLogo:hover {
+        transform: scale(1.30);
+    }
+
+    #returnTop {
+        width: 60px;
+        height: 60px;
+        font-size: 25px;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--primary-color);
+        color: var(--primary-color3);
+        height: 15vw;
+    }
+
+    .divPhoto {
+        width: 60vw;
+        height: 45vw;
+        overflow: hidden;
+        border: 3px solid var(--primary-color);
     }
 }
