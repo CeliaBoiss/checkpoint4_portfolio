@@ -43,7 +43,9 @@
     {% for project in projects %}
     <div>
         <h3>{{ project.title }}</h3>
-        <a href="{{ path('project_show', {'id' : project.id}) }}"><img src="http://placekitten.com/300/200" alt=""></a>
+        <a href="{{ path('project_show', {'id' : project.id}) }}">
+            <img src="/assets/images/dynamic/{{ project.photos[0].photo }}" alt="projet {{ project.title }}">
+        </a>
     </div>
     {% endfor %}
     <a href="{{ path('project_index') }}">Voir plus</a>

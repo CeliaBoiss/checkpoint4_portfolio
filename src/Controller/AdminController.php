@@ -139,12 +139,71 @@ class AdminController extends AbstractController
     public function editProject(
         Request $request,
         Project $project,
-        EntityManagerInterface $entityManager
+        EntityManagerInterface $entityManager,
+        FileManager $fileManager
     ): Response {
         $form = $this->createForm(ProjectType::class, $project);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $photoFile1 = $form->get('photoFile1')->getData();
+            $photoFile2 = $form->get('photoFile2')->getData();
+            $photoFile3 = $form->get('photoFile3')->getData();
+
+            if ($photoFile1 != null) {
+                if($project->getPhotos()[0] != null) {
+                    $fileManager->deleteFile($project->getPhotos()[0], $this->getParameter('upload_directory'));
+                }
+
+                $results = $fileManager->saveFile(
+                    $project->getTitle(),
+                    $photoFile1,
+                    $this->getParameter('upload_directory')
+                );
+
+                $photo1 = new Photo();
+                $photo1->setPhoto($results['fileName']);
+                $photo1->setProject($project);
+                $project->addPhoto($photo1);
+                $entityManager->persist($photo1);
+            }
+
+            if ($photoFile2 != null) {
+                if($project->getPhotos()[1] != null) {
+                    $fileManager->deleteFile($project->getPhotos()[1], $this->getParameter('upload_directory'));
+                }
+
+                $results = $fileManager->saveFile(
+                    $project->getTitle(),
+                    $photoFile2,
+                    $this->getParameter('upload_directory')
+                );
+
+                $photo2 = new Photo();
+                $photo2->setPhoto($results['fileName']);
+                $photo2->setProject($project);
+                $project->addPhoto($photo2);
+                $entityManager->persist($photo2);
+            }
+
+            if ($photoFile3 != null) {
+                if($project->getPhotos()[2] != null) {
+                    $fileManager->deleteFile($project->getPhotos()[2], $this->getParameter('upload_directory'));
+                }
+
+                $results = $fileManager->saveFile(
+                    $project->getTitle(),
+                    $photoFile3,
+                    $this->getParameter('upload_directory')
+                );
+
+                $photo3 = new Photo();
+                $photo3->setPhoto($results['fileName']);
+                $photo3->setProject($project);
+                $project->addPhoto($photo3);
+                $entityManager->persist($photo3);
+            }
+
             $entityManager->flush();
 
             return $this->redirect('/admin/project/' . $project->getId());
