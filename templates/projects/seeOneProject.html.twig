@@ -37,7 +37,7 @@
     <h3 class="partTitle">Collaborateur(s)</h3>
     <div class="greyBack links">
         {% for workingPartner in project.workingPartners %}
-        <a class="customer" href="http://{{ workingPartner.url }}">
+        <a class="customer" href="http://{{ workingPartner.url }}" target="blank">
             {{ workingPartner.firstname }} {{ workingPartner.lastname }}
         </a>
         {% endfor %}

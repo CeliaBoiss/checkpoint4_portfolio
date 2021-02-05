@@ -49,7 +49,7 @@ class SkillController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="admin_skill_edit", methods={"GET","POST"})
+     * @Route("/skill/{id}/edit", name="admin_skill_edit", methods={"GET","POST"})
      * @IsGranted("ROLE_ADMIN")
      */
     public function editSkill(

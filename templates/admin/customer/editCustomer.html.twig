@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin{{ parent() }}{% endblock %}
+
+{% block body %}
+    <h1 class="adminTitle">Modifier le client "{{ customer.name }}"</h1>
+    {{ include('admin/customer/_formCustomer.html.twig', {'button_label': 'Modifier'}) }}
+    <a href="{{ path('admin_customer_show', {'id' : customer.id }) }}">Retour au client</a>
+{% endblock %}

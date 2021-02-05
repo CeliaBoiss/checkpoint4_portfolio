@@ -10,9 +10,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Entity\WorkingPartner;
 use App\Entity\Project;
 use App\Entity\Skill;
+use App\Entity\Customer;
 use App\Repository\WorkingPartnerRepository;
 use App\Repository\ProjectRepository;
 use App\Repository\SkillRepository;
+use App\Repository\CustomerRepository;
 
 class AdminController extends AbstractController
 {
@@ -24,16 +26,19 @@ class AdminController extends AbstractController
     public function index(
         ProjectRepository $projectRepository,
         WorkingPartnerRepository $workingPartnerRepository,
-        SkillRepository $skillRepository
+        SkillRepository $skillRepository,
+        CustomerRepository $customerRepository
     ): Response {
         $projects = $projectRepository->findAll();
         $workingPartners = $workingPartnerRepository->findAll();
         $skills = $skillRepository->findAll();
+        $customers = $customerRepository->findAll();
 
         return $this->render('admin/index.html.twig', [
             'projects' => $projects,
             'workingPartners' => $workingPartners,
-            'skills' => $skills
+            'skills' => $skills,
+            'customers' => $customers
         ]);
     }
 }

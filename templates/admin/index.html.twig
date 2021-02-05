@@ -41,4 +41,15 @@
     {% endfor %}
 </ul>
 <button><a href="{{ path('admin_skill_add') }}">Nouvelle compétence</a></button>
+<h2>Clients</h2>
+<ul>
+    {% for customer in customers %}
+    <li>
+        <a href="{{ path('admin_customer_show', {'id': customer.id}) }}">{{ loop.index }} - {{ customer.name }}</a>
+    </li>
+    {% else %}
+    <p>Pas de compétences à afficher.</li>
+    {% endfor %}
+</ul>
+<button><a href="{{ path('admin_customer_add') }}">Nouveau client</a></button>
 {% endblock %}

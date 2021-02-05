@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin{{ parent() }}{% endblock %}
+
+{% block body %}
+    <h1 class="adminTitle">Ajout d'un nouveau client</h1>
+    {{ include('admin/customer/_formCustomer.html.twig', {'button_label': 'Ajouter'}) }}
+    <a href="{{ path('admin_index') }}">Retour à index admin</a>
+{% endblock %}
