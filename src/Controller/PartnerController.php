@@ -15,7 +15,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 class PartnerController extends AbstractController
 {
     /**
-     * @Route("/admin/partner/add", name="admin_partner_add")
+     * @Route("/admin/partner/add", name="admin_partner_add", methods={"GET","POST"})
      * @IsGranted("ROLE_ADMIN")
      */
     public function addWorkingPartner(Request $request, EntityManagerInterface $entityManager): Response

@@ -17,11 +17,16 @@
     width: 80%;
 }
 
-.customer {
-    color: var(--primary-color3);
+.links {
+    text-align: center;
 }
 
-.skillsList li {
+.customer {
+    color: var(--primary-color3);
+    padding-left: 10px;    
+}
+
+.greyBack li {
     list-style: none;
 }
 
@@ -31,7 +36,7 @@
     -moz-columns: 2;
 }
 
-.dates, .customer {
+.dates {
     text-align: center;
 }
 
@@ -66,5 +71,11 @@
 
     .customer:hover {
         color: var(--primary-color2);
+    }
+
+    .skillsList {
+        columns: 3;
+        -webkit-columns: 3;
+        -moz-columns: 3;
     }
 }

@@ -20,9 +20,11 @@
     <h3 class="partTitle">Description du projet</h3>
     <p class="greyBack">{{ project.description }}</p>
     <h3 class="partTitle">Réalisé pour</h3>
+    <div class="greyBack links">
         {% for customer in project.customers %}
-            <a class="greyBack customer" href="http://{{ customer.url }}" target="_blank">{{ customer.name }}</a>
+            <a class="customer" href="http://{{ customer.url }}" target="_blank">{{ customer.name }}</a>
         {% endfor %}
+    </div>
     <h3 class="partTitle">Dates</h3>
     <p class="dates greyBack">Du <span>{{ project.startDate|date('d-m-Y') }}</span> au <span>{{ project.endDate ? project.endDate|date('d-m-Y') : 'En cours'}}</span></p>
     <h3 class="partTitle">Technologies utilisées</h3>
@@ -32,13 +34,14 @@
     {% endfor %}
     </ul>
     {% if project.workingPartners is not empty %}
-    <h3 class="partTitle">Collaborateur(s)<h3>
-    <ul class="greyBack">
-    {% for workingPartner in project.workingPartners %}
-        <li><a href="http://{{ workingPartner.url }}">
+    <h3 class="partTitle">Collaborateur(s)</h3>
+    <div class="greyBack links">
+        {% for workingPartner in project.workingPartners %}
+        <a class="customer" href="http://{{ workingPartner.url }}">
             {{ workingPartner.firstname }} {{ workingPartner.lastname }}
-        </a></li>
-    {% endfor %}
+        </a>
+        {% endfor %}
+    </div>
     </ul>
     {% endif %}
 </section>
