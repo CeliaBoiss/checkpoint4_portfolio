@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin{{ parent() }}{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/assets/style/adminStyle.css">
+{% endblock %}
+
+{% block body %}
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Nom</th>
+            <td>{{ socialNetwork.name }}</td>
+        </tr>
+        <tr>
+            <th>Logo</th>
+            <td><img src="/assets/images/dynamic/{{ socialNetwork.logo }}"></td>
+        </tr>
+        <tr>
+            <th>Url</th>
+            <td>{{ socialNetwork.url }}</td>
+        </tr>
+    </tbody>
+</table>
+<button><a href="{{ path('admin_social_network_edit', {'id': socialNetwork.id}) }}">Edit</a></button>
+<form method="post" action="{{ path('admin_social_network_delete', {'id': socialNetwork.id}) }}" onsubmit="return confirm('{{ socialNetwork.name }} sera supprimé. Continuer ?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ socialNetwork.id) }}">
+    <button class="btn">Delete</button>
+</form>
+<a href="{{ path('admin_index') }}">Retour à index admin</a>
+{% endblock %}

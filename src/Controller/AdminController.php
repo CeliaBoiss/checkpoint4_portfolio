@@ -15,6 +15,7 @@ use App\Repository\WorkingPartnerRepository;
 use App\Repository\ProjectRepository;
 use App\Repository\SkillRepository;
 use App\Repository\CustomerRepository;
+use App\Repository\SocialNetworkRepository;
 
 class AdminController extends AbstractController
 {
@@ -27,18 +28,21 @@ class AdminController extends AbstractController
         ProjectRepository $projectRepository,
         WorkingPartnerRepository $workingPartnerRepository,
         SkillRepository $skillRepository,
-        CustomerRepository $customerRepository
+        CustomerRepository $customerRepository,
+        SocialNetworkRepository $socialNetworkRepository
     ): Response {
         $projects = $projectRepository->findAll();
         $workingPartners = $workingPartnerRepository->findAll();
         $skills = $skillRepository->findAll();
         $customers = $customerRepository->findAll();
+        $socialNetworks = $socialNetworkRepository->findAll();
 
         return $this->render('admin/index.html.twig', [
             'projects' => $projects,
             'workingPartners' => $workingPartners,
             'skills' => $skills,
-            'customers' => $customers
+            'customers' => $customers,
+            'socialNetworks' => $socialNetworks
         ]);
     }
 }

@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin{{ parent() }}{% endblock %}
+
+{% block body %}
+    <h1 class="adminTitle">Modifier le réseau social "{{ socialNetwork.name }}"</h1>
+    {{ include('admin/socialNetwork/_formSocialNetwork.html.twig', {'button_label': 'Modifier'}) }}
+    <a href="{{ path('admin_social_network_show', {'id' : socialNetwork.id }) }}">Retour au réseau social</a>
+{% endblock %}

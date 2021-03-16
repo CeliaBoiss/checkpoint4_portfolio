@@ -52,4 +52,15 @@
     {% endfor %}
 </ul>
 <button><a href="{{ path('admin_customer_add') }}">Nouveau client</a></button>
+<h2>Réseaux sociaux</h2>
+<ul>
+    {% for socialNetwork in socialNetworks %}
+    <li>
+        <a href="{{ path('admin_social_network_show', { 'id': socialNetwork.id }) }}">{{ loop.index }} - {{ socialNetwork.name }}</a>
+    </li>
+    {% else %}
+    <li>Pas de réseaux sociaux à afficher.</li>
+    {% endfor %}
+</ul>
+<button><a href="{{ path('admin_social_network_add') }}">Nouveau réseau social</a></button>
 {% endblock %}

@@ -34,6 +34,7 @@
                 <a href="#" target="blank"><img class="snLogo" src="/assets/images/static/githubDefault.png"></a>
                 <a href="#" target="blank"><img class="snLogo" src="/assets/images/static/linkedinDefault.png"></a>
                 <a href="#" target="blank"><img class="snLogo" src="/assets/images/static/emailDefault.png"></a>
+                {{ render(controller('App\\Controller\\SocialNetworkController::getSocialNetworks')) }}
             </nav>
         </footer>
         <script src="/assets/js/base.js"></script>
